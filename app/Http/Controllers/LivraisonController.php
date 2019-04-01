@@ -27,13 +27,13 @@ class LivraisonController extends Controller
 
         }
 
-        $process = new Process("python /Users/macbook/Desktop/Hackathon/aa/AgilDash/Simple-Linear-Regression-master/simple_linear_regression.py");
+        /*$process = new Process("python /Users/macbook/Desktop/Hackathon/aa/AgilDash/Simple-Linear-Regression-master/simple_linear_regression.py");
         $process->run();
         if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }
 
-        Log::info("python test".$process->getOutput());
+        Log::info("python test".$process->getOutput());*/
         return view('vertical.livraisonData')->with('all_livraisons',$all_livraisons);
     }
 

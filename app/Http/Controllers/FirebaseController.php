@@ -11,7 +11,7 @@ class FirebaseController extends Controller
         $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/firebase.json');
         $firebase 		  = (new Factory)
             ->withServiceAccount($serviceAccount)
-            ->withDatabaseUri('https://agil-aee92.firebaseio.com')
+            ->withDatabaseUri('https://hackathon-star.firebaseio.com')
             ->create();
         $database 		= $firebase->getDatabase();
         $ref=$database->getReference('compte');
