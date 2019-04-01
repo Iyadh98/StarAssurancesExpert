@@ -8,7 +8,8 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 use Kreait\Firebase\Database;
 use Illuminate\Support\Facades\Log;
-
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 class LivraisonController extends Controller
 {
     public function getAll(){
@@ -26,7 +27,13 @@ class LivraisonController extends Controller
 
         }
 
-        Log::info($all_livraisons);
+        $process = new Process("python /Users/macbook/Desktop/Hackathon/aa/AgilDash/Simple-Linear-Regression-master/simple_linear_regression.py");
+        $process->run();
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+        Log::info("python test".$process->getOutput());
         return view('vertical.livraisonData')->with('all_livraisons',$all_livraisons);
     }
 

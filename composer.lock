@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f1f969d87fbcec24d426fe8cfebad07",
+    "content-hash": "4e85d1d840bca66ef9517498c84aa528",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3471,7 +3471,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
