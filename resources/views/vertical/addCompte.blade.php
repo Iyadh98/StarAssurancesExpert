@@ -16,57 +16,31 @@
            class="form-horizontal">
         {{ csrf_field() }}
         <div class="row form-group">
+            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Login</label>
+            </div>
+            <div class="col-12 col-md-9"><input type="text" id="id_expert" name="id_expert" class="form-control"></div>
         </div>
         <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Depot sous compte</label>
+            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Password</label>
             </div>
-            <div class="col-12 col-md-9"><input type="text" id="DPOSCP" name="DPOSCP" class="form-control"></div>
+            <div class="col-12 col-md-9"><input type="password" id="password" name="password" class="form-control"></div>
         </div>
         <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">numéro de gouvernorat</label>
+            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nom complet</label>
             </div>
-            <div class="col-12 col-md-9"><input type="text" id="GVRPNT" name="GVRPNT" class="form-control"></div>
+            <div class="col-12 col-md-9"><input type="text" id="nom_complet" name="nom_complet" class="form-control"></div>
         </div>
         <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Latitude</label>
+            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre de dossiers</label>
             </div>
-            <div class="col-12 col-md-9"><input type="text" id="LATITUDE" name="LATITUDE" class="form-control"></div>
+            <div class="col-12 col-md-9"><input type="text" id="nbr_dossiers" name="nbr_dossiers" class="form-control"></div>
         </div>
         <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Libellé de gouvernorat</label>
+            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Lien photo</label>
             </div>
-            <div class="col-12 col-md-9"><input type="text" id="LIBGVR" name="LIBGVR" class="form-control"></div>
+            <div class="col-12 col-md-9"><input type="text" id="lien_photo" name="lien_photo" class="form-control"></div>
         </div>
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Libelle de localisation</label>
-            </div>
-            <div class="col-12 col-md-9"><input type="text" id="LIBLOC" name="LIBLOC" class="form-control"></div>
-        </div>
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Point de localisation</label>
-            </div>
-            <div class="col-12 col-md-9"><input type="text" id="LOCPNT" name="LOCPNT" class="form-control"></div>
-        </div>
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Longitude</label>
-            </div>
-            <div class="col-12 col-md-9"><input type="text" id="LONGITUDE" name="LONGITUDE" class="form-control"></div>
-        </div>
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Matricule du compte</label>
-            </div>
-            <div class="col-12 col-md-9"><input type="text" id="MATCPT" name="MATCPT" class="form-control"></div>
-        </div>
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nom du compte</label>
-            </div>
-            <div class="col-12 col-md-9"><input type="text" id="NOMCPT" name="NOMCPT" class="form-control"></div>
-        </div>
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Numéro du sous compte</label>
-            </div>
-            <div class="col-12 col-md-9"><input type="text" id="SCPSCP" name="SCPSCP" class="form-control"></div>
-        </div>
+
 
 
         <div class="card-footer">
@@ -81,17 +55,16 @@
 
 @endsection
 @section('morejs')
-    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script>
         // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
         var config = {
-            apiKey: "AIzaSyAD-B_bCo7e95XHBPpNkRvhc4I8xHwUKpE",
-            authDomain: "agil-aee92.firebaseapp.com",
-            databaseURL: "https://agil-aee92.firebaseio.com",
-            projectId: "agil-aee92",
-            storageBucket: ".appspot.com",
-            messagingSenderId: "",
+            apiKey: "AIzaSyBLQbCpsZBNQK-_qSSzh_HClSBkdUU3Yd0",
+            authDomain: "hackathon-star.firebaseapp.com",
+            databaseURL: "https://hackathon-star.firebaseio.com",
+            projectId: "hackathon-star",
+            storageBucket: "hackathon-star.appspot.com",
+            messagingSenderId: "440225179433"
         };
         firebase.initializeApp(config);
 
@@ -100,39 +73,21 @@
         var lastIndex = 0;
         $('#submitUser').on('click', function(){
             var values = $("#addUser").serializeArray();
-            var DPOSCP = values[0].value;
-            var GVRPNT = values[1].value;
-            var LATITUDE = values[2].value;
-            var LIBGVR = values[3].value;
-            var LIBLOC = values[4].value;
-            var LOCPNT = values[5].value;
-            var LONGITUDE = values[6].value;
-            var MATCPT = values[7].value;
-            var NOMCPT = values[8].value;
-            var SCPSCP = values[9].value;
-            var incr = (function () {
-                var i = 157;
 
-                return function () {
-                    return i++;
-                }
-            })();
+            var id_expert=values[1].value
+            var nom_complet= values[3].value;
+            var nbr_dossiers = values[4].value;
+            var lien_photo = values[5].value;
+            firebase.database().ref('/experts/'+id_expert).set({
+                nom_complet: nom_complet,
+                nbr_dossiers: nbr_dossiers,
+                lien_photo: lien_photo,
 
-            firebase.database().ref('compte/' + incr()).set({
-                DPOSCP: DPOSCP,
-                GVRPNT: GVRPNT,
-                LATITUDE: LATITUDE,
-                LIBGVR: LIBGVR,
-                LIBLOC: LIBLOC,
-                LOCPNT: LOCPNT,
-                LONGITUDE: LONGITUDE,
-                MATCPT: MATCPT,
-                NOMCPT: NOMCPT,
-                SCPSCP: SCPSCP,
             });
 
 
             $("#addUser input").val("");
+            window.location.href = "http://stackoverflow.com";
         });
     </script>
 @endsection

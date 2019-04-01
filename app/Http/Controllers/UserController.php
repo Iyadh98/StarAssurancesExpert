@@ -13,14 +13,14 @@ class UserController extends Controller
         $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/firebase.json');
         $firebase 		  = (new Factory)
             ->withServiceAccount($serviceAccount)
-            ->withDatabaseUri('https://agil-aee92.firebaseio.com')
+            ->withDatabaseUri('https://hackathon-star.firebaseio.com')
             ->create();
         $database 		= $firebase->getDatabase();
-        $ref=$database->getReference('compte');
-        $produits=$ref->getValue();
+        $ref=$database->getReference('experts');
+        $experts=$ref->getValue();
 
-        foreach($produits as $produit){
-            $all_products[]=$produit;
+        foreach($experts as $expert){
+            $all_products[]=$expert;
         }
         return view('vertical.compteData')->with('all_products',$all_products);
     }

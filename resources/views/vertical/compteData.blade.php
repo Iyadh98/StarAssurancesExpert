@@ -14,10 +14,9 @@
         <thead>
         <tr>
             <th>Nom</th>
-            <th>Localisation</th>
-            <th>Longitude</th>
-            <th>Latitude</th>
-            <th>Matricule du compte</th>
+            <th>Nombre de dossiers</th>
+            <th>Photo</th>
+
         </tr>
         </thead>
 
@@ -25,11 +24,9 @@
         <tbody>
         @foreach($all_products as $all)
             <tr>
-                <td>{{$all['NOMCPT']}}</td>
-                <td>{{$all['LIBLOC']}}</td>
-                <td>{{$all['LONGITUDE']}}</td>
-                <td>{{$all['LATITUDE']}}</td>
-                <td>{{$all['MATCPT']}}</td>
+                <td>{{$all['nom_complet']}}</td>
+                <td>{{$all['nbr_dossiers']}}</td>
+                <td><img src="{{$all['lien_photo']}}" style="width:150px;height:150px;"></td>
             </tr>
         @endforeach
         </tbody>
